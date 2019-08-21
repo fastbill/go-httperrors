@@ -63,7 +63,8 @@ func TestWriteJSON(t *testing.T) {
 		t.Run(testCase.name, func(t *testing.T) {
 			he := New(testCase.code, testCase.message)
 			w := httptest.NewRecorder()
-			he.WriteJSON(w)
+			err := he.WriteJSON(w)
+			assert.NoError(t, err)
 
 			assert.Equal(t, testCase.code, w.Code)
 			assert.Equal(t, testCase.result+"\n", w.Body.String())
