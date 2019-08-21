@@ -1,0 +1,21 @@
+linters:
+  enable:
+    - gocyclo
+    - golint
+    - dupl
+    - interfacer
+    - unconvert
+    - goconst
+    - gosec
+    - bodyclose
+
+run:
+  deadline: 10m
+
+issues:
+  exclude-rules:
+    - path: _test\.go
+      linters:
+        - dupl
+        - goconst
+        - gosec
