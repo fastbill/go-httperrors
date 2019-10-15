@@ -19,3 +19,7 @@ issues:
         - dupl
         - goconst
         - gosec
+
+linters-settings:
+  gocyclo:
+    min-complexity: 10
