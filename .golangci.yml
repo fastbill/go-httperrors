@@ -11,15 +11,27 @@ linters:
 
 run:
   deadline: 10m
+  modules-download-mode: vendor
 
 issues:
+  exclude-use-default: false
   exclude-rules:
     - path: _test\.go
       linters:
         - dupl
         - goconst
         - gosec
+    - linters:
+        - govet
+      text: 'shadow: declaration of "err" shadows declaration'
+    - linters:
+        - golint
+      text: 'in another file for this package'
 
 linters-settings:
   gocyclo:
     min-complexity: 10
+  golint:
+    min-confidence: 0
+  govet:
+    check-shadowing: true
