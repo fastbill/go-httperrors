@@ -1,9 +1,8 @@
 linters:
   enable:
     - gocyclo
-    - golint
+    - revive
     - dupl
-    - interfacer
     - unconvert
     - goconst
     - gosec
@@ -25,13 +24,13 @@ issues:
         - govet
       text: 'shadow: declaration of "err" shadows declaration'
     - linters:
-        - golint
+        - revive
       text: 'in another file for this package'
 
 linters-settings:
   gocyclo:
     min-complexity: 10
-  golint:
+  revive:
     min-confidence: 0
   govet:
     check-shadowing: true
